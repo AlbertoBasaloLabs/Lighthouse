@@ -11,6 +11,14 @@ const config = {
   arrowParens: 'always',
   bracketSameLine: true,
   bracketSpacing: true,
+  overrides: [
+    {
+      files: '*.md',
+      options: {
+        proseWrap: 'always',
+      },
+    },
+  ],
 };
 
 export default config;
