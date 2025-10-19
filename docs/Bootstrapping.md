@@ -18,12 +18,14 @@ npm install typescript --save-dev
 npx tsc --init
 ```
 
-## 2. Code quality tools 
+## 2. Code quality tools
 
 ### Prettier
 
 ```bash
 npm install prettier --save-dev
+# config at prettier.config.js and at .prettierignore
+# add to package.json: "format": "prettier --write .",
 ```
 
 ### ESLint

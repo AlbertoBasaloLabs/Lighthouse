@@ -11,8 +11,9 @@ Repository: [Laboratories / Lighthouse](https://github.com/AlbertoBasaloLabs/Lig
 - Frontend Web application [Angular spa / v20](https://github.com/AlbertoBasaloLabs/Angular)
 
 - API Rest Server: [Express api / v5](https://github.com/AlbertoBasaloLabs/Express)
-  
+
 ---
+
 - **Author**: [Alberto Basalo](https://albertobasalo.dev)
 - **Company**: [AI code Academy](https://aicode.academy)
 - **Socials**:
