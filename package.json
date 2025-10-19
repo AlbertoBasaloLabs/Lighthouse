@@ -1,0 +1,30 @@
+{
+  "name": "lighthouse",
+  "version": "1.0.0",
+  "description": "Demo laboratory for Lighthouse courses and workshops",
+  "author": {
+    "name": "Alberto Basalo",
+    "company": "AI code Academy",
+    "website": "https://aicode.academy",
+    "email": "albertobasalo@aicode.academy",
+    "url": "https://albertobasalo.dev"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlbertoBasaloLabs/Lighthouse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlbertoBasaloLabs/Lighthouse/issues"
+  },
+  "homepage": "https://github.com/AlbertoBasaloLabs/Lighthouse#readme",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
