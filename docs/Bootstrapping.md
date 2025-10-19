@@ -14,6 +14,8 @@ npm init -y
 
 ```bash
 npm install typescript --save-dev
+# config tsconfig.json
+npx tsc --init
 ```
 
 ## 2. Code quality tools 
@@ -64,7 +66,7 @@ npm install jest --save-dev
 ### Stryker
 
 ```bash
-npm install stryker --save-dev
+npm install @stryker-mutator/core --save-dev
 ```
 
 ---
@@ -73,5 +75,5 @@ npm install stryker --save-dev
 
 ```bash
 npm init -y
-npm install typescript prettier eslint husky commitlint lint-staged jest stryker --save-dev
+npm install typescript prettier eslint husky commitlint lint-staged jest @stryker-mutator/core --save-dev
 ```
