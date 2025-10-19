@@ -31,10 +31,11 @@ npm install prettier --save-dev
 ### ESLint
 
 ```bash
-npm install eslint --save-dev
-# plugin eslint with prettier
-npm install eslint-plugin-prettier --save-dev
+npm init @eslint/config@latest
+# config at eslint.config.js
+# config eslint with prettier
 npm install eslint-config-prettier --save-dev
+# add to package.json: "lint": "eslint --fix .",
 ```
 
 ## 3. Git workflow tools
