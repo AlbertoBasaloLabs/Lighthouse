@@ -47,6 +47,10 @@ npm install eslint-config-prettier --save-dev
 
 ```bash
 npm install husky --save-dev
+# Initialize husky
+npx husky init
+# Change Pre-commit hook to just format and lint
+echo 'npm run format && npm run lint' > .husky/pre-commit
 ```
 
 ### Commitlint
