@@ -57,6 +57,9 @@ echo 'npm run format && npm run lint' > .husky/pre-commit
 
 ```bash
 npm install lint-staged --save-dev
+# Config at lint-staged.config.js
+# Add to package.json scripts: "lint-staged": "lint-staged",
+# Change Pre-commit hook to run lint-staged
 ```
 
 ### Commitlint
