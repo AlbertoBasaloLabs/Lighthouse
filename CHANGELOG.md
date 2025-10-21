@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.0](https://github.com/AlbertoBasaloLabs/Lighthouse/compare/v1.1.0...v1.2.0) (2025-10-21)
+
+
+### Features
+
+* data folder ([b709b04](https://github.com/AlbertoBasaloLabs/Lighthouse/commit/b709b04e41f75417d4a8ef2da0db03c2d9a2d40b))
+* read, fake process and write url ([e62a7ae](https://github.com/AlbertoBasaloLabs/Lighthouse/commit/e62a7ae0f1af68e4f68317deb695ff0137e78014))
+* report preparation ([43ed9dd](https://github.com/AlbertoBasaloLabs/Lighthouse/commit/43ed9dd018ebfebff674d9bf03d3c11bd468ce2b))
+
 ## 1.1.0 (2025-10-21)
 
 
