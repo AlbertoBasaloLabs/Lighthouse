@@ -1,7 +1,4 @@
 const lintStaged = {
-  'src/**/*.{ts,tsx}': [
-    'npm run format',
-    'npm run lint'
-  ]
+  'src/**/*.{ts,tsx}': ['prettier --write', 'eslint --fix'],
 };
 export default lintStaged;
