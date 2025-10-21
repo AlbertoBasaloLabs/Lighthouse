@@ -1,6 +1,6 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
-import type { ProcessedURL, Report, URLEntry } from './types';
+import type { ProcessedURL, Report, URLEntry } from './types.ts';
 
 /**
  * Reads URLs from a JSON file.
@@ -9,6 +9,7 @@ import type { ProcessedURL, Report, URLEntry } from './types';
  */
 export function readUrls(filePath: string): URLEntry[] {
   try {
+    ensurePathFolderExists(filePath);
     const absolutePath: string = resolve(filePath);
     const fileContent: string = readFileSync(absolutePath, 'utf-8');
     const data: unknown = JSON.parse(fileContent);
@@ -24,7 +25,7 @@ export function readUrls(filePath: string): URLEntry[] {
       console.warn('Missing or invalid "urls" property in JSON file');
       return [];
     }
-
+    console.log(`Read ${urls.length} URLs from ${filePath}`);
     return urls as URLEntry[];
   } catch (error) {
     console.error(`Error reading URLs from ${filePath}:`, error);
@@ -63,6 +64,8 @@ export function processUrls(urls: URLEntry[]): ProcessedURL[] {
       processed.name = entry.name;
     }
 
+    console.log(`Processed URL: ${processed.url}`);
+
     return processed;
   });
 }
@@ -70,10 +73,9 @@ export function processUrls(urls: URLEntry[]): ProcessedURL[] {
 /**
  * Generates a report by reading URLs, processing them, and saving to a file.
  * @param inputPath Path to the input JSON file with URLs
- * @param outputPath Path where the report JSON file will be saved
  * @returns Report object containing metadata and processed URLs
  */
-export function generateReport(inputPath: string, outputPath: string): Report {
+export function generateReport(inputPath: string): Report {
   try {
     const urls: URLEntry[] = readUrls(inputPath);
     const processedUrls: ProcessedURL[] = processUrls(urls);
@@ -84,12 +86,17 @@ export function generateReport(inputPath: string, outputPath: string): Report {
       urls: processedUrls,
     };
 
-    const absoluteOutputPath: string = resolve(outputPath);
+    const absoluteOutputPath: string = resolve(inputPath);
     writeFileSync(absoluteOutputPath, JSON.stringify(report, null, 2), 'utf-8');
-
+    console.log(`Report generated and saved to ${inputPath}`);
     return report;
   } catch (error) {
     console.error('Error generating report:', error);
     throw error;
   }
+}
+
+function ensurePathFolderExists(path: string): void {
+  const dir = resolve(path, '..');
+  mkdirSync(dir, { recursive: true });
 }

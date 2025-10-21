@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2025-10-21T10:27:12.220Z",
+  "totalUrls": 1,
+  "urls": [
+    {
+      "url": "https://albertobasalo.dev",
+      "dateLastVisited": "2025-10-21T10:27:12.220Z",
+      "scores": {
+        "performance": 44,
+        "accessibility": 55,
+        "bestPractices": 59
+      },
+      "name": "Alberto Basalo site"
+    }
+  ]
+}
