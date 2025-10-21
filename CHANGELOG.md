@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.3.0](https://github.com/AlbertoBasaloLabs/Lighthouse/compare/v1.2.0...v1.3.0) (2025-10-21)
+
+
+### Features
+
+* add jest testing ([ddd8b0a](https://github.com/AlbertoBasaloLabs/Lighthouse/commit/ddd8b0a497f8060a6262e3ada57d411e0f2e5c44))
+
+
+### Bug Fixes
+
+* testing value ([caaa821](https://github.com/AlbertoBasaloLabs/Lighthouse/commit/caaa82187b321e5c63f91c560a9ac1f977d7de91))
+
 ## [1.2.0](https://github.com/AlbertoBasaloLabs/Lighthouse/compare/v1.1.0...v1.2.0) (2025-10-21)
 
 
