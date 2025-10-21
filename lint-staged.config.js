@@ -1,4 +1,4 @@
 const lintStaged = {
-  'src/**/*.{ts,tsx}': ['prettier --write', 'eslint --fix', 'git add'],
+  'src/**/*.{ts,tsx}': ['prettier --write', 'eslint --fix'],
 };
 export default lintStaged;
