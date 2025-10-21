@@ -79,6 +79,14 @@ git commit -m "foo: this will fail"
 git commit -m "chore: setup commitlint"
 ```
 
+
+### Commit and tag version
+
+```bash
+npm i --save-dev commit-and-tag-version
+# Add to package.json scripts: "release": "commit-and-tag-version",
+```
+
 ## 4. Testing tools
 
 ### Jest
