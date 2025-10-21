@@ -37,7 +37,7 @@ export function readUrls(filePath: string): URLEntry[] {
  * Generates a random score between 0 and 100.
  * @returns Random score value
  */
-function generateRandomScore(): number {
+export function generateRandomScore(): number {
   return Math.floor(Math.random() * 101);
 }
 

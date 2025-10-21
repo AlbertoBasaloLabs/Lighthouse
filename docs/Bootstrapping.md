@@ -102,7 +102,12 @@ npm i --save-dev commit-and-tag-version
 ### Jest
 
 ```bash
+# Install Jest
 npm install jest --save-dev
+# Install Typescript support for Jest
+npm install @types/jest ts-jest --save-dev
+# Initialize Jest config
+npm init jest@latest
 ```
 
 ### Stryker
