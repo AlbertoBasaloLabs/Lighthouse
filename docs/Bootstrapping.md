@@ -65,7 +65,14 @@ npm install lint-staged --save-dev
 ### Commitlint
 
 ```bash
+# Install commitlint
 npm install commitlint --save-dev
+# Install the conventional config
+npm install @commitlint/config-conventional --save-dev
+# Config at commitlint.config.js
+echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+# Add commit-msg hook
+echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
 ```
 
 ## 4. Testing tools
