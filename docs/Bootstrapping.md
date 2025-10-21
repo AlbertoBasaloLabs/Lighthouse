@@ -16,6 +16,7 @@ npm init -y
 ```bash
 # Install Typescript
 npm install typescript --save-dev
+npm install --save-dev @types/node
 # config tsconfig.json
 npx tsc --init
 ```
