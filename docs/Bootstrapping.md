@@ -1,18 +1,20 @@
 # Bootstrapping
 
-This is a Node Typescript project.
+This is the Bootstrapping process for a professional Node Typescript project.
 
 ## 1. Project initialization
 
 ### Npm
 
 ```bash
+# Initialize npm project
 npm init -y
 ```
 
 ### Typescript
 
 ```bash
+# Install Typescript
 npm install typescript --save-dev
 # config tsconfig.json
 npx tsc --init
@@ -24,18 +26,19 @@ npx tsc --init
 
 ```bash
 npm install prettier --save-dev
-# config at prettier.config.js and at .prettierignore
-# add to package.json: "format": "prettier --write .",
+# Config at prettier.config.js 
+# Ignore at .prettierignore
+# Add to package.json scripts: "format": "prettier --write .",
 ```
 
 ### ESLint
 
 ```bash
 npm init @eslint/config@latest
-# config at eslint.config.js
-# config eslint with prettier
+# Config at eslint.config.js
+# Config eslint with prettier
 npm install eslint-config-prettier --save-dev
-# add to package.json: "lint": "eslint --fix .",
+# Add to package.json scripts: "lint": "eslint --fix .",
 ```
 
 ## 3. Git workflow tools
@@ -74,9 +77,3 @@ npm install @stryker-mutator/core --save-dev
 
 ---
 
-## Full installScript
-
-```bash
-npm init -y
-npm install typescript prettier eslint husky commitlint lint-staged jest @stryker-mutator/core --save-dev
-```

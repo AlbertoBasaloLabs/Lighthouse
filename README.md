@@ -6,6 +6,8 @@ Using Puppeteer and Lighthouse to test the performance and accessibility of a we
 
 Repository: [Laboratories / Lighthouse](https://github.com/AlbertoBasaloLabs/Lighthouse)
 
+Read the [docs folder](./docs/) for more information.
+
 ## Subject Under Test:
 
 - Frontend Web application [Angular spa / v20](https://github.com/AlbertoBasaloLabs/Angular)
