@@ -73,6 +73,10 @@ npm install @commitlint/config-conventional --save-dev
 echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
 # Add commit-msg hook
 echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+# test if commit-msg hook is working
+git add .
+git commit -m "foo: this will fail"
+git commit -m "chore: setup commitlint"
 ```
 
 ## 4. Testing tools
