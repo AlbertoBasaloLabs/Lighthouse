@@ -41,6 +41,16 @@ npm install eslint-config-prettier --save-dev
 # Add to package.json scripts: "lint": "eslint --fix .",
 ```
 
+### Vs Code extensions recommendations
+
+Create a `.vscode/extensions.json` file with the following content:
+
+```json
+{
+  "recommendations": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+}
+```
+
 ## 3. Git workflow tools
 
 ### Husky
@@ -78,7 +88,6 @@ git add .
 git commit -m "foo: this will fail"
 git commit -m "chore: setup commitlint"
 ```
-
 
 ### Commit and tag version
 
