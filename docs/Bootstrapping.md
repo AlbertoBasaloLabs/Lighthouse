@@ -26,7 +26,7 @@ npx tsc --init
 
 ```bash
 npm install prettier --save-dev
-# Config at prettier.config.js 
+# Config at prettier.config.js
 # Ignore at .prettierignore
 # Add to package.json scripts: "format": "prettier --write .",
 ```
@@ -53,16 +53,16 @@ npx husky init
 echo 'npm run format && npm run lint' > .husky/pre-commit
 ```
 
-### Commitlint
-
-```bash
-npm install commitlint --save-dev
-```
-
 ### Lint-staged
 
 ```bash
 npm install lint-staged --save-dev
+```
+
+### Commitlint
+
+```bash
+npm install commitlint --save-dev
 ```
 
 ## 4. Testing tools
@@ -80,4 +80,3 @@ npm install @stryker-mutator/core --save-dev
 ```
 
 ---
-
