@@ -58,5 +58,9 @@
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.1"
+  },
+  "dependencies": {
+    "lighthouse": "^13.0.0",
+    "puppeteer": "^24.26.0"
   }
 }

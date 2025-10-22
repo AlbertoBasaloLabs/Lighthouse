@@ -125,6 +125,8 @@ npm install @types/jest ts-jest --save-dev
 # Configure Jest for Typescript at jest.config.js
 # Script to run tests in package.json:
 # "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+# Add coverage script:
+# "test:cov": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
 ```
 
 ### Stryker
@@ -132,6 +134,9 @@ npm install @types/jest ts-jest --save-dev
 ```bash
 npm install @stryker-mutator/core --save-dev
 npm init stryker@latest
+# Configure Stryker at stryker.conf.mjs
+# add testRunnerNodeArgs: ['--experimental-vm-modules']
+# Run Stryker with: "stryker": "stryker run",
 ```
 
 ---
