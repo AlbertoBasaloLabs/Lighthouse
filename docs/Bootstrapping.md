@@ -131,6 +131,7 @@ npm install @types/jest ts-jest --save-dev
 
 ```bash
 npm install @stryker-mutator/core --save-dev
+npm init stryker@latest
 ```
 
 ---
