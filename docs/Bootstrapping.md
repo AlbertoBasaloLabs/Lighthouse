@@ -106,8 +106,9 @@ npm i --save-dev commit-and-tag-version
 npm install jest --save-dev
 # Install Typescript support for Jest
 npm install @types/jest ts-jest --save-dev
-# Initialize Jest config
-npm init jest@latest
+# Configure Jest for Typescript at jest.config.js
+# Script to run tests in package.json:
+# "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
 ```
 
 ### Stryker

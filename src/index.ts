@@ -1,4 +1,4 @@
-import * as reports from './reports/index.ts';
+import * as reports from './reports/index.js';
 
 function main() {
   console.log('Lighthouse Automation Tool');
@@ -6,6 +6,3 @@ function main() {
 }
 
 main();
-
-// Additional exports can be added here if needed
-export * from './reports/index.ts';

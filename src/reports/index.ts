@@ -1,6 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
-import type { ProcessedURL, Report, URLEntry } from './types.ts';
+import type { ProcessedURL, Report, URLEntry } from './types.js';
 
 /**
  * Reads URLs from a JSON file.

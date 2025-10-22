@@ -1,4 +1,4 @@
-import * as reports from '../../src/reports/index.ts';
+import * as reports from './index.js';
 /**
  * generate random score should return a value between 0 and 100
  */
