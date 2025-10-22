@@ -99,6 +99,22 @@ npm i --save-dev commit-and-tag-version
 
 ## 4. Testing tools
 
+### Modules
+
+- import using `.js` extension for ESM modules
+- Change start script to build and run `dist/index.js`
+- install `tsx` for running Typescript files directly
+
+```bash
+# "build": "tsc"
+npm run build
+# "start": "node dist/index.js"
+# "prestart": "npm run build"
+npm start
+npm install tsx --save-dev
+# "dev": "tsx src/index.ts"
+```
+
 ### Jest
 
 ```bash
