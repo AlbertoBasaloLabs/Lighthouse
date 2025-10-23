@@ -78,13 +78,10 @@ export class ReportGenerator {
 
     const processedUrl: ProcessedURL = {
       url: entry.url,
+      name: entry.name,
       dateLastVisited: timestamp,
       scores,
     };
-
-    if (entry.name !== undefined) {
-      processedUrl.name = entry.name;
-    }
 
     console.log(`  ✅ Processed: ${processedUrl.url}`);
     return processedUrl;
@@ -108,8 +105,4 @@ export class ReportGenerator {
     const directory = resolve(path, '..');
     mkdirSync(directory, { recursive: true });
   }
-}
-
-export function generateRandomScore(): number {
-  return Math.floor(Math.random() * 101);
 }

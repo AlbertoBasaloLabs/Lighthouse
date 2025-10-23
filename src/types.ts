@@ -3,7 +3,7 @@
  */
 export type URLEntry = {
   url: string;
-  name?: string;
+  name: string;
 };
 
 /**
@@ -20,7 +20,7 @@ export type Score = {
  */
 export type ProcessedURL = {
   url: string;
-  name?: string;
+  name: string;
   dateLastVisited: string;
   scores: Score;
 };

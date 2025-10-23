@@ -1,4 +1,4 @@
-import { LighthouseClient, ReportGenerator } from './reports/index.js';
+import { LighthouseClient, ReportGenerator } from './report-generator.js';
 
 async function main(): Promise<void> {
   console.clear();
