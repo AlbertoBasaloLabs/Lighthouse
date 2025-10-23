@@ -4,7 +4,15 @@ import puppeteer from 'puppeteer';
 
 export type CategoryName = 'performance' | 'accessibility' | 'seo' | 'best-practices';
 
-const screenEmulation = {
+type ScreenEmulation = {
+  mobile: boolean;
+  width: number;
+  height: number;
+  deviceScaleFactor: number;
+  disabled: boolean;
+};
+
+const DEFAULT_SCREEN_EMULATION: ScreenEmulation = {
   mobile: false,
   width: 1920,
   height: 1080,
@@ -12,77 +20,85 @@ const screenEmulation = {
   disabled: false,
 };
 
-// We keep an internal browser reference so callers can start/stop a single
-// Chrome instance and pass its debugging port to multiple lighthouse runs.
-let chromeProcess: puppeteer.Browser | null = null;
-let chromeDebugPort = 0;
-
-export async function startChrome(port = 9222): Promise<number> {
-  if (chromeProcess) {
-    return chromeDebugPort || port;
-  }
-  chromeProcess = await puppeteer.launch({
-    headless: true,
-    args: [`--remote-debugging-port=${port}`],
-  });
-  chromeDebugPort = port;
-  return chromeDebugPort;
-}
-
-export async function stopChrome(): Promise<void> {
-  if (!chromeProcess) return;
-  try {
-    await chromeProcess.close();
-  } finally {
-    chromeProcess = null;
-    chromeDebugPort = 0;
-  }
-}
+const DEFAULT_PORT: number = 9222;
 
 /**
- * Get a Lighthouse report for the provided URL.
- * If a port is provided, Lighthouse will connect to that existing Chrome instance.
- * If no port is provided, this function will launch a short-lived Chrome instance
- * for the single run (backwards-compatible behavior).
+ * Client for running Lighthouse audits with managed Chrome instance.
  */
-export async function getLighthouseReport(url: string, port?: number): Promise<Result> {
-  let ownChrome: puppeteer.Browser | null = null;
-  const usedPort: number = (port ?? chromeDebugPort) || 9222;
+export class LighthouseClient {
+  private browser: puppeteer.Browser | null = null;
+  private readonly port: number;
+  private readonly screenEmulation: ScreenEmulation;
 
-  try {
-    if (!port && !chromeProcess) {
-      // launch a short-lived chrome instance when caller didn't start one
-      ownChrome = await puppeteer.launch({
-        headless: true,
-        args: [`--remote-debugging-port=${usedPort}`],
-      });
-      // if ownChrome launched, set usedPort explicitly
+  constructor(
+    port: number = DEFAULT_PORT,
+    screenEmulation: ScreenEmulation = DEFAULT_SCREEN_EMULATION,
+  ) {
+    this.port = port;
+    this.screenEmulation = screenEmulation;
+  }
+
+  /**
+   * Start Chrome browser instance.
+   */
+  public async start(): Promise<void> {
+    if (this.browser !== null) {
+      return;
     }
 
-    const lh = await lighthouse(url, {
-      port: usedPort,
+    this.browser = await puppeteer.launch({
+      headless: true,
+      args: [`--remote-debugging-port=${this.port}`],
+    });
+  }
+
+  /**
+   * Stop Chrome browser instance.
+   */
+  public async stop(): Promise<void> {
+    if (this.browser === null) {
+      return;
+    }
+
+    try {
+      await this.browser.close();
+    } finally {
+      this.browser = null;
+    }
+  }
+
+  /**
+   * Run Lighthouse audit for a URL.
+   * @param url The URL to audit
+   * @returns The Lighthouse report
+   */
+  public async audit(url: string): Promise<Result> {
+    const lighthouseResult = await lighthouse(url, {
+      port: this.port,
       output: 'json',
       formFactor: 'desktop',
       disableFullPageScreenshot: true,
-      screenEmulation,
+      screenEmulation: this.screenEmulation,
     });
 
-    if (!lh || !lh.lhr) {
-      throw new Error('Lighthouse report is undefined');
+    if (
+      lighthouseResult === null ||
+      lighthouseResult === undefined ||
+      lighthouseResult.lhr === undefined
+    ) {
+      throw new Error(`Lighthouse audit failed for ${url}`);
     }
 
-    return lh.lhr;
-  } finally {
-    if (ownChrome) {
-      try {
-        await ownChrome.close();
-      } catch {
-        // ignore
-      }
-    }
+    return lighthouseResult.lhr;
   }
-}
 
-export function getLighthouseCategoryScore(lhr: Result, category: CategoryName): number {
-  return lhr.categories[category]?.score ?? 0;
+  /**
+   * Extract category score from Lighthouse report.
+   * @param report The Lighthouse report
+   * @param category The category name
+   * @returns The score (0-1) or 0 if not found
+   */
+  public getCategoryScore(report: Result, category: CategoryName): number {
+    return report.categories[category]?.score ?? 0;
+  }
 }

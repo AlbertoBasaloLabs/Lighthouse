@@ -1,8 +1,13 @@
-import * as reports from './reports/index.js';
+import { LighthouseClient, ReportGenerator } from './reports/index.js';
 
-function main() {
-  console.log('Lighthouse Report Generator');
-  reports.generateReport('data/urls.json');
+async function main(): Promise<void> {
+  console.clear();
+  console.log('💡 Lighthouse Report Generator');
+
+  const lighthouseClient: LighthouseClient = new LighthouseClient();
+  const reportGenerator: ReportGenerator = new ReportGenerator(lighthouseClient);
+
+  await reportGenerator.generateReport('data/urls.json');
 }
 
 main();
